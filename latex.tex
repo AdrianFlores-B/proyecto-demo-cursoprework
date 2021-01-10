@@ -1,0 +1,818 @@
+\documentclass[10pt]{extarticle}  
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage[margin=0.8 in]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{parskip}
+\usepackage{amssymb}
+\usepackage{calc}
+\usepackage{dsfont}
+\usepackage{lmodern}  
+\usepackage{bm}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage{mathtools}
+\usepackage{xparse}
+\usepackage{cuted}
+\usepackage{ctable,booktabs}
+\usepackage{cancel}
+\usepackage{subcaption}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{parskip}
+\usepackage{amssymb}
+\usepackage{calc}
+\usepackage{dsfont}
+\usepackage{lmodern}  
+\usepackage{bm}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage{mathtools}
+\usepackage{xparse}
+\usepackage{cuted}
+\usepackage{ctable,booktabs}
+\usepackage{cancel}
+\usepackage{subcaption}
+\setlength{\parindent}{0em}
+\DeclareSymbolFont{myletters}{OML}{ztmcm}{m}{it}
+\DeclareMathSymbol{\lambda}{\mathord}{myletters}{"15}
+\renewcommand{\familydefault}{\rmdefault}%\sfdefault \rmdefault \ttdefault
+\newcommand{\linia}{\rule{\linewidth}{1.5pt}}
+\newcommand{\reall}{\mathbb{R}}
+\newcommand{\deriv}{\frac{d}{dx}}
+\newcommand{\field}{\mathbb{F}}
+\newcommand{\poly}{\mathcal{P}}
+\newcommand{\matrixx}[1]{\mathcal{M}(#1)}
+\newcommand{\lima}[1]{\mathcal{L}(#1)}
+\newcommand{\Eval}[3]{\left.#1\right\rvert_{#2}^{#3}}
+\newcommand{\listv}{v_1,v_2,...,v_m}
+\newcommand{\listx}{x_1,x_2,x_3,x_4}
+\newcommand{\derivt}{\frac{d}{dt}}
+\newcommand{\lc}{a_1v_1+a_2v_2+...+a_mv_m}
+\newcommand{\pola}{a_0+a_1 x+a_2x^2+...+a_nx^n }
+\newcommand{\polb}{b_0+b_1 x+b_2x^2+...+b_nx^n }
+
+
+\renewcommand{\qedsymbol}{\hfill$\blacksquare$}
+
+\DeclareMathOperator{\dimm}{dim}
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\nulll}{null}
+\DeclareMathOperator{\rangee}{range}
+\newcommand{\itembf}[1]{\item[\textbf{#1}]}
+\setlength{\parindent}{0em}
+
+\begin{document}
+	
+	\begin{LARGE}
+		\emph{Calculus III: HW 5}\centering\\
+	\end{LARGE}	
+
+	\begin{large}
+		\begin{center}
+			Luis Adrián Flores Bueno
+		\end{center}
+	\end{large}
+
+	\begin{large}
+		\textbf{Exercises 6.4 }
+	\end{large}
+		
+		
+		
+	\begin{itemize}
+		
+		\itembf{2.} Which of the following are linear transformations from $\reall^2$ to $\reall^2$ ?.
+		
+		(a) Shear: $T(x,y)=(x+cy,y)$ for some constant c.
+		
+		 	\begin{proof}
+		 		\begin{gather*}
+		 			T((u,v)+(x,y))=T(u+x,v+y)=((u+x)+c(v+y),v+y)=((u+x)+cv+cy,v+y)
+		 			\\=(u+cv,v)+(x+cy,y)=T(u,v)+T(x,y)
+		 			\\
+		 			\\
+		 			T(\lambda(x,y))=T(\lambda x,\lambda y)=(\lambda x+ \lambda c y,\lambda y)=\lambda(x+cy,y)=\lambda T(x,y)
+		 			\\
+		 			\\
+		 			\textit{Shear is a linear transformation since this function satisfy the properties of additivity
+		 			}
+		 			\\
+		 			\textit{ and homogenity, besides  $ T(x,y) \in \reall^2 \; \quad \forall x,y\in \reall $}
+		 		\end{gather*}
+		 	\end{proof}
+		(b) Translation: $   T(x,y)=(x+a,y+b)$ for some constants $ a$ and $b$
+			
+			\begin{proof}
+				\begin{gather*}
+					T(x,y)+T(u,v)=(x+a,y+b)+(u+a,v+b)=(x+u+2a,y+v+2b)
+					\\
+					T((x,y)+(u,v))=T=(x+u,y+v)=(x+u+a,y+v+b)
+					\\
+					\\
+					\implies T(v_1+v_2)\neq Tv_1 +Tv_2\;\; for \; \; v_1,v_2\in\reall^2
+					\\
+					 \therefore \textit{T is not linear}
+				\end{gather*}
+			\end{proof}
+		
+			
+		
+		(c)Blow-up: $T(x,y)=(ax,by)$ for some constants a and b 
+		
+			\begin{proof}
+				\begin{gather*}
+					(u,v)\in \reall^2;
+					\\
+					T(x,y)+T(u,v)=(ax,by)+(au,bv)=(ax+au,+by+bv)=(a(x+u),b(y+v))
+					\\=T(x+u,y+v)=T((x,y)+(u,v))
+					\\
+					\\
+					T(\lambda(x,y))=T(\lambda x,\lambda y)=(a\lambda x,b\lambda y)=\lambda(ax,by)=\lambda T(x,y)
+					\\
+					\\
+					\textit{Blow-up is a linear transformation since this function satisfy the properties of additivity
+					}
+					\\
+					\textit{ and homogenity, besides  $ T(x,y) \in \reall^2 \; \quad \forall x,y\in \reall $}
+				\end{gather*}
+			\end{proof}
+		
+		
+\clearpage	
+		
+		(d) Rotation: if $x=r\cos\theta $,  $y=r\sin\theta$, then
+		\[T(x,y)=(r\cos(\theta+\phi),r\sin(\theta+\phi))\]	
+		for some constant angle $\phi$
+			\begin{proof}
+				\begin{gather*}
+					x=r\cos\theta_1 \qquad y=r\sin\theta_1  \quad where \quad (x,y)\in \reall^2
+					\\
+					u=r\cos\theta_2 \qquad v=r\sin\theta_2 \quad where \quad (u,v)\in \reall^2
+					\\
+					\\
+					T((x,y)+(u,v))=T(x+u,y+v)=T(r(\cos\theta_1+\cos\theta_2),r(\sin\theta_1+\sin\theta_2))
+					\\
+					\\
+					=T(|(x,y)+(u,v)|\cos\theta_3,|(x,y)+(u,v)|\sin\theta_3)
+					\\
+					\\
+					=T\left(|(x,y)+(u,v)|(\cos\theta_3,\sin\theta_3)\right)	
+					\\
+					\\	=T\left(\sqrt{(r\cos\theta_1+\cos\theta_2)^2+(r\sin\theta_1+\sin\theta_2)^2}\right)(\cos\theta_3,\sin\theta_3)
+					\\
+					\\
+					=T\left(2r\sqrt{\frac{1-cos(\theta_1-\theta_2)}{2}}\left(\cos\left(\arctan\left(\frac{r(\sin\theta_1+\sin\theta_2)}{r(\cos\theta_1+\cos\theta_2)}\right)\right),\sin\left(\arctan\left(\frac{r(\sin\theta_1+\sin\theta_2)}{r(\cos\theta_1+\cos\theta_2)}\right)\right)\right)\right)
+					\\
+					\\
+					=T\left(2r\cos\left(\frac{\theta_1-\theta_2}{2}\right)\cdot\left(\cos\left(\arctan\left(\frac{2\sin\left(\frac{\theta_1+\theta_2}{2}\right)\cos\left(\frac{\theta_1-\theta_2}{2}\right)}{2\cos\left(\frac{\theta_1+\theta_2}{2}\right)\cos\left(\frac{\theta_1-\theta_2}{2}\right)}\right)\right),
+					\sin\left(\arctan\left(\frac{2\sin\left(\frac{\theta_1+\theta_2}{2}\right)\cos\left(\frac{\theta_1-\theta_2}{2}\right)}{2\cos\left(\frac{\theta_1+\theta_2}{2}\right)\cos\left(\frac{\theta_1-\theta_2}{2}\right)}\right)\right)
+					\right)
+					\right)
+					\\
+					\\
+					\\
+					=T\left(2r\cos\left(\frac{\theta_1-\theta_2}{2}\right)\cdot\left(\cos\left(\arctan\left(\frac{\sin\left(\frac{\theta_1+\theta_2}{2}\right)}{\cos\left(\frac{\theta_1+\theta_2}{2}\right)}\right)\right),
+					\sin\left(\arctan\left(\frac{\sin\left(\frac{\theta_1+\theta_2}{2}\right)}{\cos\left(\frac{\theta_1+\theta_2}{2}\right)}\right)\right)
+					\right)
+					\right)
+					\\
+					\\
+					=T\left(2r\cos\left(\frac{\theta_1-\theta_2}{2}\right)\cdot\left(\cos\left(\arctan\left(\tan\left(\frac{\theta_1+\theta_2}{2}\right)\right)\right),
+					\sin\left(\arctan\left(\tan\left(\frac{\theta_1+\theta_2}{2}\right)\right)\right)
+					\right)
+					\right)
+					\\
+					\\
+					=T\left(2r\cos\left(\frac{\theta_1-\theta_2}{2}\right)\cdot\left(\cos\left(\frac{\theta_1+\theta_2}{2}\right),\sin\left(\frac{\theta_1+\theta_2}{2}
+					\right)
+					\right)
+					\right)
+					\\
+					\\
+					=2r\cos\left(\frac{\theta_1-\theta_2}{2}\right)\cdot\left(\cos\left(\frac{\theta_1+\theta_2}{2}+\phi\right),\sin\left(\frac{\theta_1+\theta_2}{2}+\phi\right)\right)
+					\\
+					\\
+					=r\left(2\cos\left(\frac{(\theta_1+\phi)+(\theta_2+\phi)}{2}\right)\cos\left(\frac{(\theta_1+\phi)-(\theta_2+\phi)}{2}\right),2\sin\left(\frac{(\theta_1+\phi)+(\theta_2+\phi)}{2}\right)\cos\left(\frac{(\theta_1+\phi)-(\theta_2+\phi)}{2}\right)\right)
+					\\
+					\\
+					\left(r\left(\cos(\theta_1+\phi)+\cos(\theta_2+\phi)\right),r\left(\sin(\theta_1+\phi)+\sin(\theta_2+\phi)\right)\right)
+					\\
+					\\
+					=\left(r\cos(\theta_1+\phi),r\sin(\theta_1+\phi)\right)+\left(r\cos(\theta_2+\phi),r\sin(\theta_2+\phi)\right)=T(x,y)+T(u,v)
+					\\
+					\\
+					\implies T(x,y)+T(u,v)=T\left((x,y)+(u,v)\right)
+				\end{gather*}	
+\clearpage			
+
+				\begin{gather*}
+					\lambda T(x,y)=\lambda(r\cos(\theta_1+\phi),r\sin(\theta_1+\phi))=(\lambda r\cos(\theta_1+\phi),\lambda r\sin(\theta_1+\phi))=T(\lambda x, \lambda y)=T(\lambda(x,y))
+					\\
+					\\
+					\textit{Rotation is a linear transformation since this function satisfy the properties of additivity
+					}
+					\\
+					\textit{ and homogenity, besides  $ T(x,y) \in \reall^2 \; \quad \forall x,y\in \reall $}
+				\end{gather*}
+			\end{proof}
+			
+		(e) Projection: given a fixed vector $\vec{r}=(a,b,\;T)$ maps each point to the closest point on the line spanned by $\vec{r}$
+		\[T(\vec{x})=\vec{x}_r=\frac{\vec{x}\cdot\vec{r}}{|\vec{r}|^2}\vec{r}\]
+			\begin{proof}
+				\begin{gather*}
+					\vec{x}=(x_1,x_2)\qquad \vec{y}=(y_1,y_2)
+					\\
+					T\vec{x}+T\vec{y}=\frac{\vec{x}\cdot\vec{r}}{|\vec{r}|^2}\vec{r}+\frac{\vec{y}\cdot\vec{r}}{|\vec{r}|^2}\vec{r}=\left(\frac{ax_1+bx_2}{a^2+b^2}\right)\vec{r}+\left(\frac{ay_1+by_2}{a^2+b^2}\right)\vec{r}				
+					=\left(\frac{a(x_1+y_1)+b(x_2+y_2)}{a^2+b^2}\right)\vec{r}
+					\\
+					\\
+					=\left(\frac{((x_1+y_1),(x_2+y_2))\cdot(a,b)}{a^2+b^2}\right)\vec{r}=\frac{(\vec{x}+\vec{y})\cdot\vec{r}}{|\vec{r}|^2}\:\vec{r}=(\vec{x}+\vec{y})_r=T(\vec{x}+\vec{y})
+					\\
+					\\
+					T\vec{x}+T\vec{y}=T(\vec{x}+\vec{y})
+					\\
+					\\
+					\lambda T(\vec{x})=\lambda\frac{\vec{x}\cdot\vec{r}}{|\vec{r}|^2}\vec{r}=\frac{\lambda\vec{x}\cdot\vec{r}}{|\vec{r}|^2}\vec{r}=T(\lambda\vec{x})
+					\\
+					\textit{Projection is a linear transformation since this function satisfy the properties of additivity
+					}
+					\\
+					\textit{ and homogenity, besides  $ T(x,y) \in \reall^2 \; \quad \forall x,y\in \reall $}
+				\end{gather*}
+			\end{proof}
+		
+		
+		
+		(f) Reflection. given a fixed vector $\vec{r}=(a,b), \; T$ maps each point to its reflection with respect to $\vec{r}$:
+		\begin{gather*}
+			T\vec{x}\:=\:\vec{x}-2\vec{x}_{r\perp}
+			\\
+			\quad  =2\vec{x}_r-\vec{x}
+		\end{gather*}
+	
+	
+			
+			\begin{proof}
+				\begin{gather*}
+					\vec{x}=(x_1,x_2)\qquad \vec{y}=(y_1,y_2)
+					\\
+					T\vec{x}+T\vec{y}=2\left(\frac{\vec{x}\cdot\vec{r}}{|\vec{r}|^2}\vec{r}\right)-\vec{x}+2\left(\frac{\vec{y}\cdot\vec{r}}{|\vec{r}|^2}\vec{r}\right)-\vec{y}
+					=2\left(\frac{a(x_1+y_1)+b(x_2+y_2)}{a^2+b^2}\right)\vec{r}-(\vec{x}+\vec{y})
+					\\
+					\\
+					=2\left(\frac{((x_1+y_1),(x_2+y_2))\cdot(a,b)}{a^2+b^2}\right)\vec{r}-(\vec{x}+\vec{y})=2\left(\frac{(\vec{x}+\vec{y})\cdot\vec{r}}{|\vec{r}|^2}\right)\vec{r}-(\vec{x}+\vec{y})=T(\vec{x}+\vec{y})
+					\\
+					\\
+					\lambda T\vec{x}=\lambda\left(2\left(\frac{\vec{x}\cdot\vec{r}}{|\vec{r}|^2}\vec{r}\right)-\vec{x}\right)=2\left(\frac{\lambda\vec{x}\cdot\vec{r}}{|\vec{r}|^2}\vec{r}\right)-\lambda\vec{x}=T(\lambda\vec{x})\qquad \lambda\in\reall
+					\\
+					\\
+					\textit{Reflection is a linear transformation since this function satisfy the properties of additivity
+					}
+					\\
+					\textit{ and homogenity, besides  $ T(x,y) \in \reall^2 \; \quad \forall x,y\in \reall $}
+				\end{gather*}
+			\end{proof}
+\clearpage
+		\itembf{5.} Define tranformations $L$ and $M$ by
+		\begin{gather*}
+			L(\:\vec{i}\:)=\vec{i}-2\vec{k},\qquad  \quad\;\; M(\:\vec{i}\:)=-\vec{j}+3\vec{k}
+			\\
+			\;\;\; L(\:\vec{j}\:)=3\vec{j}+\vec{k},\qquad\quad\; M(\:\vec{j}\:)=5\vec{i}+\vec{j}-\vec{k}
+			\\
+			\;\; L(\:\vec{k}\:)=2\vec{i}-\vec{j}+\vec{k},\qquad M(\:\vec{k}\:)=\vec{i}+3\vec{j}+\vec{k}
+		\end{gather*}
+		Find the matrix for $ L,M,LM \; and \; ML.$
+		\\
+			\begin{gather*}
+				\mathcal{M}(L)=
+				\begin{pmatrix}
+					1 & 0 & 2\\
+					0 & 3 & -1\\
+				   -2 & 1 & 1
+				\end{pmatrix}	
+				\qquad 
+					\mathcal{M}(M)=
+				\begin{pmatrix}
+				     0 & 5 & 1\\
+					-1 & 1 & 3\\
+				     3 & -1 & 1
+				\end{pmatrix}
+				\\
+				\\
+				\mathcal{M}(LM)=
+				\begin{pmatrix}
+					1 & 0 & 2\\
+					0 & 3 & -1\\
+					-2 & 1 & 1
+				\end{pmatrix}	
+				\begin{pmatrix}
+					0 & 5 & 1\\
+					-1 & 1 & 3\\
+					3 & -1 & 1
+				\end{pmatrix}
+				=\begin{pmatrix}
+				    6 & 3 & 3 \\
+				   -6 & 4 & 8\\
+					2 & -10 & 2
+				\end{pmatrix}
+				\\
+				\\
+				\mathcal{M}(ML)=
+				\begin{pmatrix}
+					0 & 5 & 1\\
+					-1 & 1 & 3\\
+					3 & -1 & 1
+				\end{pmatrix}
+				\begin{pmatrix}
+				1 & 0 & 2\\
+				0 & 3 & -1\\
+				-2 & 1 & 1
+				\end{pmatrix}
+				=\begin{pmatrix}
+					-2 & 16 & -4 \\
+					-7 & 6 & 0\\
+					1 & -2 & 8
+				\end{pmatrix}
+			\end{gather*}
+		
+		\itembf{8.} Compute each of the following determinants:
+		\\
+		\\
+		(a) $\begin{vmatrix}
+				\;1 & -1 & 0 \;\\
+				\;	2 & 4 & 1 \; \\
+				\;	-1 & 0 & 2\;
+			\end{vmatrix}
+			=(4)(2)-(1)(0)+2((0)(0)-(-1)(2))-1((-1)(1)-(4)(0))=8+4+1=13$\\ \\
+		
+		
+		(b) $\begin{vmatrix}
+				\; 1 & 2 & 3 \;\\
+				\; 2 & 3 & 4 \; \\
+				\; 3 & 4 & 5\;
+			\end{vmatrix}
+			=(3)(5)-(4)(4)+2((4)(3)-(2)(5))+3((2)(4)-(3)(3))=15-16+24-20+24-27=0$\\ \\
+		
+		
+		(c) $\begin{vmatrix}
+				\; 1 & 1 & 1 \;\\
+				\; 1 & 2 & 3 \; \\
+				\; 1 & 3 & 6\;
+			\end{vmatrix}
+			=(2)(6)-(3)(3)+(3)(1)-(1)(6)+(1)(3)-(2)(1)=12-9+3-6+3-2=1$ \\ \\ 
+			
+			
+		(d) $\begin{vmatrix}
+				\; 1 & 0 & 2 & 0  \;\\
+				\; 3 & 0 & -1 & 1 \;\\
+				\; 0 & 5 & 0 & -2  \;\\
+				\; 1 & 2 & -3 & 1  \;\\
+			\end{vmatrix}
+			=\begin{vmatrix}
+				\;  0 & -1 & 1 \;\\
+				\; 5 & 0 & -2  \;\\
+				\; 2 & -3 & 1  \;\\
+				\end{vmatrix}+2
+			\begin{vmatrix}
+				\; 3 & 0 & 1 \;\\
+				\; 0 & 5 & -2  \;\\
+				\; 1 & 2 & 1  \;\\
+			\end{vmatrix}=5((-3)(1)-(-1)(1))+2((-1)(-2)-(0)(1))+2(3((5)(1)-(-2)(2))+(0)(-2)-(5)(1))=5(-2)+2(2)+2(27-5)=38$ \\ \\
+			
+			
+		(e) $\begin{vmatrix}
+				\; 2 & -1 & 3 & 1  \;\\
+				\; 0 & 2 & -2 & -1 \;\\
+				\; 4 & -2 & 1 & 0  \;\\
+				\; 0 & 2 & -7 & -3  \;\\
+			\end{vmatrix}=-5
+			\begin{vmatrix}
+				\; 2 & -1  & 1  \;\\
+				\; 4 & -2  & 0  \;\\
+				\; 0 & 2   & -3  \;\\
+			\end{vmatrix}+2
+			\begin{vmatrix}
+				\; 2 & -1 & 3  \;\\
+				\; 4 & -2 & 1  \;\\
+				\; 0 & 2 & -7  \;\\
+			\end{vmatrix} =-5(2((-2)(-3)-(2)(0))+4((2)(1)-(-1)(-3)))+2(2((-2)(-7)-(2)(1))+4((2)(3)-(-1)(-7)))=-5(8)+2(20)=0$\\ \\
+			
+			
+			(f) $\begin{vmatrix}
+				\; 1 & 1 & 1 & 1  \;\\
+				\; 1 & 2 & 3 & 4 \;\\
+				\; 1 & 3 & 6 & 10  \;\\
+				\; 1 & 4 & 10 & 20  \;\\
+			\end{vmatrix}=(40-60+24)-(20-30+16)+(20-30+16)+(20-20+4)-(6-8+3)=1$
+		
+		
+		
+		\itembf{13.} Prove that
+			\begin{gather*}
+				\begin{vmatrix}
+					\;  1 & 1 & 1 \;\\
+					\; a &b & c  \;\\
+					\; a^2 & b^2 & c^2  \;\\
+				\end{vmatrix}
+				=(b-a)(c-a)(c-b)
+			\end{gather*}
+		
+		\begin{proof}
+			\begin{gather*}
+				(b-a)(c-a)(c-b)=(bc-ba-ac+a^2)(c-b)
+				\\
+				=bc^2-\cancel{abc}-ac^2+a^2c-b^2c+b^2a+\cancel{abc}-a^2b
+				\\
+				=1(bc^2-b^2c)+a((b^2)(1)-(1)(c^2))+a^2((1)(c)-(b)(1))
+				\\
+				\\
+				=	\begin{vmatrix}
+					\;  1 & 1 & 1 \;\\
+					\; a &b & c  \;\\
+					\; a^2 & b^2 & c^2  \;\\
+				\end{vmatrix}
+			\end{gather*}
+		\end{proof}
+		
+		\begin{large}
+		\textbf{Exercises 6.6 }
+	\end{large}	
+		
+		\itembf{2.}	If the determinant of an $n\times n$ matrix $L $ is $\delta\neq0$, what is the determinant of A, the matrix
+		of its cofactors?
+
+				\begin{gather*}
+					content
+				\end{gather*}
+		
+		\itembf{4.}. Find the matrix of cofactors for each of the following matrices:
+		
+		(a)$\begin{pmatrix}
+			2&3 \\
+			1&-2
+		\end{pmatrix}$
+		
+		\begin{gather*}
+			\begin{pmatrix}
+				-2&-3 \\
+				-1&2
+			\end{pmatrix}
+		\end{gather*}
+		(b)$\begin{pmatrix}
+			3&0&1 \\
+			-2&1&4\\
+			2&5&0
+		\end{pmatrix}$ 
+		
+			\begin{gather*}
+				\begin{pmatrix}
+					\begin{vmatrix}
+						1&4 \\
+						5&0
+					\end{vmatrix}
+				&-\begin{vmatrix}
+					0&1 \\
+					5&0
+				\end{vmatrix}
+				&\begin{vmatrix}
+						0&1 \\
+					1&4
+				\end{vmatrix}
+				 \\
+				 \\
+				 	-\begin{vmatrix}
+				 		-2&4\\
+				 		2&0
+				 	\end{vmatrix}
+				 	&\begin{vmatrix}
+				 		3&1 \\
+				 		2&0
+				 	\end{vmatrix}
+				 	&-\begin{vmatrix}
+				 			3&1 \\
+				 		-2&4
+				 	\end{vmatrix}
+				 	\\
+				 	\\
+				 		\begin{vmatrix}
+				 				-2&1\\
+				 			2&5
+				 		\end{vmatrix}
+				 		&-\begin{vmatrix}
+				 			3&0 \\
+				 			2&5
+				 		\end{vmatrix}
+				 		&\begin{vmatrix}
+				 			3&0 \\
+				 			-2&1
+				 		\end{vmatrix}
+				\end{pmatrix}
+			=\begin{pmatrix}
+				-20&5&-1 \\
+				8&-2&-14\\
+				-12&-15&3
+			\end{pmatrix}
+			\end{gather*}
+			
+		(c)$\begin{pmatrix}
+			1&2&3 \\
+			2&3&4\\
+			3&4&5
+		\end{pmatrix}$
+				\begin{gather*}
+				\begin{pmatrix}
+					\begin{vmatrix}
+						3&4 \\
+						4&5
+					\end{vmatrix}
+					&-\begin{vmatrix}
+						2&3 \\
+						4&5
+					\end{vmatrix}
+					&\begin{vmatrix}
+						2&3\\
+						3&4
+					\end{vmatrix}
+					\\
+					\\
+					-\begin{vmatrix}
+							2&4\\
+						3&5
+					\end{vmatrix}
+					&\begin{vmatrix}
+						1&3 \\
+						3&5
+					\end{vmatrix}
+					&-\begin{vmatrix}
+							1&3 \\
+						2&4
+					\end{vmatrix}
+					\\
+					\\
+					\begin{vmatrix}
+						2&3 \\
+						3&4
+					\end{vmatrix}
+					&-\begin{vmatrix}
+							1&2 \\
+						3&4
+					\end{vmatrix}
+					&\begin{vmatrix}
+						1&2 \\
+						2&3
+					\end{vmatrix}
+				\end{pmatrix}
+				=\begin{pmatrix}
+					-1&2&-1 \\
+					2&-4&2\\
+					-1&2&-1
+				\end{pmatrix}
+			\end{gather*}
+		
+		
+		
+		(d)$\begin{pmatrix}
+			1&1&1 \\
+			1&2&3\\
+			1&3&6
+		\end{pmatrix}$
+		\begin{gather*}
+			\begin{pmatrix}
+				\begin{vmatrix}
+					2&3 \\
+					3&6
+				\end{vmatrix}
+				&-\begin{vmatrix}
+					1&3\\
+					1&6
+				\end{vmatrix}
+				&\begin{vmatrix}
+					1&2\\
+					1&3
+				\end{vmatrix}
+				\\
+				\\
+				-\begin{vmatrix}
+					1&1 \\
+					3&6
+				\end{vmatrix}
+				&\begin{vmatrix}
+					1&1 \\
+					1&6
+				\end{vmatrix}
+				&-\begin{vmatrix}
+					1&1 \\
+					1&3
+				\end{vmatrix}
+				\\
+				\\
+				\begin{vmatrix}
+					1&1 \\
+					2&3
+				\end{vmatrix}
+				&-\begin{vmatrix}
+					1&1 \\
+					1&3
+				\end{vmatrix}
+				&\begin{vmatrix}
+					1&1 \\
+					1&2
+				\end{vmatrix}
+			\end{pmatrix}
+			=\begin{pmatrix}
+				3&-3&1 \\
+				-3&5&-2\\
+				1&-2&1
+			\end{pmatrix}
+		\end{gather*}
+		
+		
+		(e)$\begin{pmatrix}
+			1&0&1&1 \\
+			1&1&0&1\\
+			0&1&1&1 \\
+			1&1&1&0
+		\end{pmatrix}$
+	\[	\begin{pmatrix}
+			-1&-1&2&-1 \\
+			2&-1&-1&-1\\
+			-1&2&-1&-1 \\
+			-1&-1&-1&2
+		\end{pmatrix}\]
+		
+	\itembf{5.}	Find the inverse of each matrix of Exercise 4 that is invertible
+		
+			(a)\[\frac{	\begin{pmatrix}
+					-2&-3 \\
+					-1&2
+			\end{pmatrix}}{\begin{vmatrix}
+			2&3 \\
+			1&-2
+		\end{vmatrix}}=\begin{pmatrix}
+	\frac{2}{7}&\frac{3}{7} \\ \\
+	\frac{1}{7}&-\frac{2}{7}
+\end{pmatrix}\]
+		
+			(b)\[\frac{\begin{pmatrix}
+					-20&5&-1 \\
+					8&-2&-14\\
+					12&-15&3
+			\end{pmatrix}}{\begin{vmatrix}
+			3&0&1 \\
+			-2&1&4\\
+			2&5&0
+		\end{vmatrix}}=\begin{pmatrix}
+\frac{5}{18}&\frac{-5}{72}&\frac{1}{72} \\ \\
+-\frac{1}{9}&\frac{1}{36}&\frac{7}{36}\\ \\
+\frac{1}{6}&\frac{5}{24}&-\frac{1}{24}
+\end{pmatrix}\]
+		
+			(c)\[\begin{vmatrix}
+			1&2&3 \\
+			2&3&4\\
+			3&4&5
+		\end{vmatrix}=0\therefore \textit{ is not ivertible}\]
+		
+		
+		(d)\[\frac{\begin{pmatrix}
+				3&-3&1 \\
+				-3&5&-2\\
+				1&-2&1
+		\end{pmatrix}}{\begin{vmatrix}
+		1&1&1 \\
+		1&2&3\\
+		1&3&6
+	\end{vmatrix}}=\begin{pmatrix}
+3&-3&1 \\
+-3&5&-2\\
+1&-2&1
+\end{pmatrix}\]
+		
+		
+		(e)\[\frac{\begin{pmatrix}
+				-1&-1&2&-1 \\
+				2&-1&-1&-1\\
+				-1&2&-1&-1 \\
+				-1&-1&-1&2
+		\end{pmatrix}}{\begin{vmatrix}
+		1&0&1&1 \\
+		1&1&0&1\\
+		0&1&1&1 \\
+		1&1&1&0
+	\end{vmatrix}}=\begin{pmatrix}
+\frac{1}{3}&\frac{1}{3}&-\frac{2}{3}&\frac{1}{3} \\ \\
+-\frac{2}{3}&\frac{1}{3}&\frac{1}{3}&\frac{1}{3}\\ \\
+\frac{1}{3}&-\frac{2}{3}&\frac{1}{3}&\frac{1}{3} \\ \\
+\frac{1}{3}&\frac{1}{3}&\frac{1}{3}&-\frac{2}{3}
+\end{pmatrix}\]
+
+
+
+
+\itembf{6.}
+Use Cramer’s rule to solve each of the following systems of equations for x, y and z\\ \\
+(a)
+\begin{align*}
+	x+3y-5z&=1 \\
+	2x-y+3z&=0 \\
+	5x+2y-z&=2
+\end{align*}
+
+	\begin{gather*}
+	x=	\frac{\begin{vmatrix}
+				1&3&-5\\
+				0&-1&3\\
+				2&2&-1
+		\end{vmatrix}}{	\begin{vmatrix}
+			1&3&-5\\
+			2&-1&3\\
+			5&2&-1
+	\end{vmatrix}}=\frac{-5+18-10}{-5+51-45}=\frac{3}{1}=3
+	\qquad	y=\frac{	\begin{vmatrix}
+					1&1&-5\\
+					2&0&3\\
+					5&2&-1
+			\end{vmatrix}}{	\begin{vmatrix}
+				1&3&-5\\
+				2&-1&3\\
+				5&2&-1
+		\end{vmatrix}}=\frac{-6+17-20}{1}=-9
+	\end{gather*}
+
+
+\begin{gather*}
+	z=\frac{\begin{vmatrix}
+			1&3&1\\
+			2&-1&0\\
+			5&2&2
+	\end{vmatrix}}{\begin{vmatrix}
+	1&3&-5\\
+	2&-1&3\\
+	5&2&-1
+\end{vmatrix}}=\frac{-2-12+9}{1}=-5
+\end{gather*}
+
+
+(b)
+	\begin{align*}
+		3x-y+z&=3 \\
+		x+2y-z&=-2 \\
+		4x-3y+3z&=1
+	\end{align*}
+
+								
+	\begin{gather*}
+		x=\frac{\begin{vmatrix}
+				3&-1&1\\
+				-2&2&-1\\
+				1&-3&3
+		\end{vmatrix}}{\begin{vmatrix}
+		3&-1&1\\
+		1&2&-1\\
+		4&-3&3
+	\end{vmatrix}}=\frac{9-5+4}{9+7-11}=\frac{8}{5}
+\qquad
+	y=\frac{\begin{vmatrix}
+			3&3&1\\
+			1&-2&-1\\
+			4&1&3
+	\end{vmatrix}}{\begin{vmatrix}
+	3&-1&1\\
+	1&2&-1\\
+	4&-3&3
+\end{vmatrix}}= \frac{-15-21+9}{5}=\frac{-27}{5}
+	\end{gather*}
+
+\begin{gather*}
+	z=\frac{\begin{vmatrix}
+			3&-1&3\\
+			1&2&-2\\
+			4&-3&1
+	\end{vmatrix}}{\begin{vmatrix}
+	3&-1&1\\
+	1&2&-1\\
+	4&-3&3
+\end{vmatrix}}=\frac{-12+9-33}{5}=\frac{-36}{5}
+\end{gather*}
+
+
+
+
+
+
+
+
+	\end{itemize}
+
+
+\end{document}
